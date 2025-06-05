@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Student Registration</title>
+
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+    <style>
+        .signup { display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="main">
+
+        <section class="signup" id="signupSection">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Student Registration</h2>
+                        <form method="POST" class="register-form" id="register-form" action="{% url 'register' %}">
+                            {% csrf_token %}
+                            
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="name" id="name" placeholder="Your Full Name" required />
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" name="email" id="email" placeholder="Your Email Address" required />
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone"><i class="zmdi zmdi-phone"></i></label>
+                                <input type="tel" name="phone" id="phone" placeholder="Your Phone Number" required pattern="[0-9]{10}" />
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="qualification"><i class="zmdi zmdi-graduation-cap"></i></label>
+                                <input type="text" name="qualification" id="qualification" placeholder="Your Highest Qualification (e.g., B.Sc., M.Sc.)" required />
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="interest_areas"><i class="zmdi zmdi-favorite"></i></label>
+                                <input type="text" name="interest_areas" id="interest_areas" placeholder="Your Areas of Interest (e.g., AI, Web Development)" required />
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="pass" id="pass" placeholder="Password" required />
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                                <input type="password" name="re_pass" id="re_pass" placeholder="Repeat Your Password" required />
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" required />
+                                <label for="agree-term" class="label-agree-term">
+                                    <span><span></span></span>I agree to all statements in 
+                                    <a href="#" class="term-service">Terms of Service</a>
+                                </label>
+                            </div>
+                            
+                            <div class="form-group form-button">
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register" />
+                            </div>
+                        </form>
+                        
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="{% static 'img/signin-image.jpg' %}" alt="sign up image"></figure>
+                        <a href="#" class="signup-image-link" onclick="showLogin()">I am already a member</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sign in Form -->
+        <section class="sign-in" id="loginSection">
+            <div class="container">
+                <div class="signin-content">
+                    <div class="signin-image">
+                        <figure><img src="{% static 'img/signin-image.jpg' %}" alt="sign up image"></figure>
+                        <a href="#" class="signup-image-link" onclick="showSignup()">Create an account</a>
+                    </div>
+                    <div class="signin-form">
+                        <h2 class="form-title">Log in</h2>
+                        <form method="POST" action="{% url 'login' %}" class="register-form" id="login-form">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="your_name" id="your_name" placeholder="Email ID"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="your_pass" id="your_pass" placeholder="Password"/>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+ 
+    <script>
+        function showSignup() {
+            document.getElementById("loginSection").style.display = "none";
+            document.getElementById("signupSection").style.display = "block";
+        }
+
+        function showLogin() {
+            document.getElementById("signupSection").style.display = "none";
+            document.getElementById("loginSection").style.display = "block";
+        }
+    </script>
+
+    <!-- JS -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
