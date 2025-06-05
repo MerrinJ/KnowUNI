@@ -35,4 +35,8 @@ A knowledge graph is a structured representation of information where nodes repr
 * In prompt(cd) Navigate to ‘education_web’ folder
 * Run command :activate project
 * Run command :python manage.py runserver
-  
+
+## System Architecture
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/785cb0cb-50f3-4dea-8257-2496aa7c3e67" width="500"/>
+</p>
