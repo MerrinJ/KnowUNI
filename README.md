@@ -23,5 +23,10 @@ A knowledge graph is a structured representation of information where nodes repr
 * JavaScript:  D3.js (for visualizing the knowledge graph).
 * Web Frameworks:  HTML/CSS (for frontend design),  Django (for backend web framework).
 
+## To Run 
 
-
+* Open Anaconda prompt.
+* In prompt(cd) Navigate to ‘education_web’ folder
+* Run command :activate project
+* Run command :python manage.py runserver
+  
