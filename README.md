@@ -8,6 +8,12 @@ A knowledge graph is a structured representation of information where nodes repr
 **Solution:**<br>
 * KnowUNI maps course dependencies through an intelligent recommendation system.
 * It allows students to explore courses based on their existing knowledge and skills.
+
+**Features:**<br>
+* Course recommendation based on user interests, location, and skills.
+* Live location-based university and course search.
+* Skill matching to suggest relevant courses.
+* Interactive knowledge graph visualization of course prerequisites using D3.js.
   
 ## Tools and Technologies
 
